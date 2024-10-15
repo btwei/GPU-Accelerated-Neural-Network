@@ -5,9 +5,9 @@
 
 class Layer {
 public:
-    virtual void forward();
-    virtual void backward();
-    virtual ~Layer() {};
+    virtual void forward() = 0;
+    virtual void backward() = 0;
+    virtual ~Layer() = default;
 protected:
     std::vector<float> parameters;
 };

@@ -1,6 +1,8 @@
 #ifndef LINEAR_LAYER_H
 #define LINEAR_LAYER_H
 
+#include "layer.h"
+
 class LinearLayer : public Layer {
 public:
     LinearLayer(int sizeIn, int sizeOut);
