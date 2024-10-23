@@ -46,6 +46,6 @@ $(OBJ_DIR)/%.cpp.o: %.cpp
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $< -o $@
 
 clean:
-	rm -rf $(OBJ_DIR) $(EXE)
+	rm -rf $(OBJ_DIR) $(EXE) datasets
 
 -include $(DEPS)
