@@ -1,8 +1,8 @@
 #include "linear_layer.h"
 
 LinearLayer::LinearLayer(int sizeIn, int sizeOut) {
-    m_sizeIn = sizeIn;
-    m_sizeOut = sizeOut;
+    mSizeIn = sizeIn;
+    mSizeOut = sizeOut;
 }
 
 void LinearLayer::forward() {

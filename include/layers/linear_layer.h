@@ -8,9 +8,6 @@ public:
     LinearLayer(int sizeIn, int sizeOut);
     void forward();
     void backward();
-private:
-    int m_sizeIn;
-    int m_sizeOut;
 };
 
 #endif
