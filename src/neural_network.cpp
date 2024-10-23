@@ -1,24 +1,21 @@
 #include "neural_network.h"
 
 neural_network::~neural_network() {
-    //Clean-up layer objects
-    for(auto& layer : layerStack){
-        delete layer;
-    }
+
 }
 
-void neural_network::addLayer(Layer* layer) {
+void neural_network::addLayer(Layer layer) {
     layerStack.push_back(layer);
 }
 
 void neural_network::train(int epochs, int miniBatchSize) {
-    //Validate dataloader and layer compatibilities?
+    //Validate dataloader and layer compatibilities? Verify if layers are all gpu implemented.
 
     //Create and Randomize Weights & Biases
     srand(time(nullptr));
 
     for(const auto& layer : layerStack){
-        size_t numLayerWeights = layer->getSizeOut() * (layer->getSizeIn() + 1);
+        size_t numLayerWeights = layer.sizeOut * (layer.sizeIn + 1);
         weights.reserve(weights.size() + numLayerWeights);
         for(int i = 0; i < numLayerWeights; i++) {
             float randomInit = static_cast<float> ( rand() / static_cast<float>(RAND_MAX)) * 2 - 1.0f;
@@ -26,11 +23,11 @@ void neural_network::train(int epochs, int miniBatchSize) {
         }
     }
 
-    //Load them onto the gpu
+    //Load Weights, Biases, and layerStack onto the GPU
 
     //Loop through minibatches and do SGD
     //On CPU: pre-compute mini batches while gpu is processing
-    //On GPU: 
+    //On GPU: do SGD based on model with given mini-batch
     for(int i=0; i< epochs; i++){
 
     }

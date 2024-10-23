@@ -5,20 +5,20 @@
 #include <ctime>
 #include <vector>
 
-#include "layer.h"
+#include "layers.h"
 
 class neural_network {
 public:
     ~neural_network();
 
-    void addLayer(Layer*);
+    void addLayer(Layer);
     void train(int epochs, int miniBatchSize);
     void test();
     void infer();
     void saveModel();
     void loadModel();
 private:
-    std::vector<Layer*> layerStack;
+    std::vector<Layer> layerStack;
     std::vector<float> weights;
 };
 
